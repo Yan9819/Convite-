@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convite 💖</title>
 
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      overflow: hidden;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      color: white;
+      font-size: 32px;
+    }
+
+    .pergunta {
+      color: white;
+      font-size: 22px;
+      margin: 20px 0;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      position: fixed;
+    }
+
+    .sim {
+      background-color: #4CAF50;
+      color: white;
+      left: 40%;
+      top: 60%;
+    }
+
+    .nao {
+      background-color: #f44336;
+      color: white;
+      left: 55%;
+      top: 60%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+    <h1>Oi, Maiara 😄</h1>
+    <div class="pergunta">Você quer sair pra jantar comigo? 💖</div>
+  </div>
+
+  <button class="sim" onclick="aceitou()">Sim</button>
+  <button class="nao" id="nao">Não</button>
+
+  <script>
+    window.onload = function () {
+      const botaoNao = document.getElementById("nao");
+
+      function fugir() {
+        const larguraJanela = window.innerWidth;
+        const alturaJanela = window.innerHeight;
+
+        const larguraBotao = botaoNao.offsetWidth;
+        const alturaBotao = botaoNao.offsetHeight;
+
+        const novaPosicaoX = Math.random() * (larguraJanela - larguraBotao);
+        const novaPosicaoY = Math.random() * (alturaJanela - alturaBotao);
+
+        botaoNao.style.left = novaPosicaoX + "px";
+        botaoNao.style.top = novaPosicaoY + "px";
+      }
+
+      botaoNao.addEventListener("mouseover", fugir);
+      botaoNao.addEventListener("touchstart", fugir);
+    };
+
+    function aceitou() {
+      window.location.href = "aceitou.html";
+    }
+  </script>
+
+</body>
+</html>
